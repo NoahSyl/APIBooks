@@ -1,5 +1,6 @@
 package com.example.apibooks2.view
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -17,17 +18,21 @@ import com.example.apibooks2.viewModel.BookViewModel
 @Composable
 fun BookList(viewModel: BookViewModel) {
     val books by viewModel.books.collectAsState(emptyList())
+    
 
-    LazyColumn(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
-        items(books) { book ->
-            BookItem(book = book)
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+        ) {
+            items(books) { book ->
+                BookItem(book = book)
+            }
         }
     }
-}
+
+
+
 
 @Composable
 fun BookItem(book: Book) {

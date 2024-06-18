@@ -26,6 +26,9 @@ object AppModule {
             .build()
     }
 
+    @Singleton
+    @Provides
+
     fun provideAPI(retrofit: Retrofit): APIBooks {
         return retrofit.create(APIBooks::class.java)
     }
